@@ -103,14 +103,12 @@
 </head>
 <body>
   <div class="container">
-    <h1>👶 Games for My Daughter</h1>
-    <p class="subtitle">Fun & developmental activities for babies 6–12 months</p>
+    <h1 id="site-title">👶 Games for My Daughter</h1>
+    <p class="subtitle" id="site-subtitle">Fun & developmental activities for babies 6–12 months</p>
     <div class="lang-switcher">
       <select id="lang-select" onchange="changeLanguage(this.value)">
         <option value="en">English</option>
         <option value="tr">Türkçe</option>
-        <option value="fr">Français</option>
-        <option value="de">Deutsch</option>
       </select>
     </div>
 
@@ -119,25 +117,67 @@
     <div id="activity-list" style="display:none"></div>
 
     <footer>
-      Made with ❤️ for my daughter · Images via <a href="https://unsplash.com">Unsplash</a><br>
-      <a href="admin.html" class="admin-link">✏️ Admin Panel</a>
+      <span id="footer-content">Made with ❤️ for my daughter · Images via <a href="https://unsplash.com">Unsplash</a></span><br>
+      <a href="admin.html" class="admin-link" id="admin-link">✏️ Admin Panel</a>
     </footer>
   </div>
 
   <script>
     let allActivities = [];
+    let currentLang = 'en';
+
+    const ui = {
+      en: {
+        title: '👶 Games for My Daughter',
+        subtitle: 'Fun & developmental activities for babies 6–12 months',
+        loading: 'Loading activities...',
+        cats: [
+          { key: 'all', label: 'All' },
+          { key: 'motor', label: 'Motor Skills' },
+          { key: 'sensory', label: 'Sensory Play' },
+          { key: 'language', label: 'Language & Social' },
+          { key: 'independent', label: 'Independent Play' }
+        ],
+        footer: 'Made with ❤️ for my daughter · Images via <a href="https://unsplash.com">Unsplash</a>',
+        adminLink: '✏️ Admin Panel'
+      },
+      tr: {
+        title: '👶 Kızım İçin Oyunlar',
+        subtitle: '6-12 aylık bebekler için eğlenceli ve geliştirici aktiviteler',
+        loading: 'Aktiviteler yükleniyor...',
+        cats: [
+          { key: 'all', label: 'Tümü' },
+          { key: 'motor', label: 'Motor Beceriler' },
+          { key: 'sensory', label: 'Duyusal Oyun' },
+          { key: 'language', label: 'Dil & Sosyal' },
+          { key: 'independent', label: 'Bağımsız Oyun' }
+        ],
+        footer: 'Kızım için ❤️ ile yapıldı · Görseller: <a href="https://unsplash.com">Unsplash</a>',
+        adminLink: '✏️ Yönetici Paneli'
+      }
+    };
 
     function getBrowserLanguage() {
       const langs = navigator.languages || [navigator.language || 'en'];
       for (const l of langs) {
         const base = l.split('-')[0].toLowerCase();
-        if (['en', 'tr', 'fr', 'de'].includes(base)) return base;
+        if (['en', 'tr'].includes(base)) return base;
       }
       return 'en';
     }
 
     function changeLanguage(lang) {
+      currentLang = lang;
       document.documentElement.lang = lang;
+      applyUI();
+    }
+
+    function applyUI() {
+      const t = ui[currentLang] || ui['en'];
+      document.getElementById('site-title').textContent = t.title;
+      document.getElementById('site-subtitle').textContent = t.subtitle;
+      document.getElementById('loading').textContent = t.loading;
+      document.getElementById('footer-content').innerHTML = t.footer + '<br>' + `<a href="admin.html" class="admin-link">${t.adminLink}</a>`;
     }
 
     async function loadActivities() {
@@ -145,8 +185,9 @@
         const res = await fetch('data.json?t=' + Date.now());
         const data = await res.json();
         allActivities = data.activities;
-        document.getElementById('lang-select').value = getBrowserLanguage();
-        changeLanguage(getBrowserLanguage());
+        currentLang = getBrowserLanguage();
+        document.getElementById('lang-select').value = currentLang;
+        applyUI();
         render();
       } catch (e) {
         document.getElementById('loading').textContent = 'Failed to load activities.';
@@ -158,15 +199,8 @@
       document.getElementById('category-nav').style.display = 'flex';
       document.getElementById('activity-list').style.display = 'block';
 
-      const cats = [
-        { key: 'all', label: 'All' },
-        { key: 'motor', label: 'Motor Skills' },
-        { key: 'sensory', label: 'Sensory Play' },
-        { key: 'language', label: 'Language & Social' },
-        { key: 'independent', label: 'Independent Play' }
-      ];
-
-      document.getElementById('category-nav').innerHTML = cats.map(c =>
+      const t = ui[currentLang] || ui['en'];
+      document.getElementById('category-nav').innerHTML = t.cats.map(c =>
         `<button class="cat-btn${c.key==='all'?' active':''}" onclick="filterCategory('${c.key}', this)">${c.label}</button>`
       ).join('');
 
