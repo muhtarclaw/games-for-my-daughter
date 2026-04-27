@@ -162,7 +162,16 @@
           { key: 'independent', label: 'Bağımsız Oyun' }
         ],
         footer: 'Kızım için ❤️ ile yapıldı · Görseller: <a href="https://unsplash.com">Unsplash</a>',
-        adminLink: '✏️ Yönetici Paneli'
+        adminLink: '✏️ Yönetici Paneli',
+        activities: {
+          'tummy-time': {
+            title: '🕯️ Yüzükoyun Zamanı',
+            description: 'Bebeğinizi yumuşak bir zemin üzerine yüzükoyun yerleştirin. Birkaç dakikadan başlayın ve güçlendikçe süreyi artırın. Bebeğinizle konuşarak ve onu meşgul ederek yakınında kalın. Yüzükoyun zamanı, bebeğinizin sürünme ve oturma için ihtiyaç duyduğu boyun ve üst vücut gücünü geliştirir.',
+            tip: '💡 Bez değişiminden sonra yüzükoyun zamanı deneyin veya destek için göğsünün altına küçük bir havlu rulosu koyun.',
+            age: '0+ ay',
+            categoryLabel: 'Motor Beceriler'
+          }
+        }
       }
     };
 
@@ -224,24 +233,32 @@
       const t = ui[currentLang] || ui['en'];
       renderCategoryNav();
 
-      document.getElementById('activity-list').innerHTML = allActivities.map(a => `
+      document.getElementById('activity-list').innerHTML = allActivities.map(a => {
+        const ta = t.activities && t.activities[a.id];
+        const title = ta && ta.title ? ta.title : a.title;
+        const desc = ta && ta.description ? ta.description : a.description;
+        const tip = ta && ta.tip ? ta.tip : a.tip;
+        const age = ta && ta.age ? ta.age : a.age;
+        const catLabel = ta && ta.categoryLabel ? ta.categoryLabel : a.categoryLabel;
+
+        return `
         <div class="activity-card" data-cat="${a.category}">
           <div class="card-inner">
             <div class="card-images">
               ${a.images.map((img, i) =>
-                `<img src="${img}" alt="${esc(a.title)}" class="${i>0?'small':''}" loading="lazy" onerror="this.style.display='none'">`
+                `<img src="${img}" alt="${esc(title)}" class="${i>0?'small':''}" loading="lazy" onerror="this.style.display='none'">`
               ).join('')}
             </div>
             <div class="card-content">
-              <span class="category-tag">${a.categoryLabel}</span>
-              <div class="activity-title">${a.title}</div>
-              <div class="activity-age">${a.age}</div>
-              <p class="activity-desc">${a.description}</p>
-              <div class="activity-tip">${a.tip}</div>
+              <span class="category-tag">${catLabel}</span>
+              <div class="activity-title">${title}</div>
+              <div class="activity-age">${age}</div>
+              <p class="activity-desc">${desc}</p>
+              <div class="activity-tip">${tip}</div>
             </div>
           </div>
         </div>
-      `).join('');
+      `}).join('');
     }
 
     function filterCategory(cat, btn) {
