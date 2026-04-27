@@ -166,8 +166,13 @@
       return 'en';
     }
 
+    function getStoredLanguage() {
+      return localStorage.getItem('lang') || getBrowserLanguage();
+    }
+
     function changeLanguage(lang) {
       currentLang = lang;
+      localStorage.setItem('lang', lang);
       document.documentElement.lang = lang;
       applyUI();
     }
@@ -185,7 +190,7 @@
         const res = await fetch('data.json?t=' + Date.now());
         const data = await res.json();
         allActivities = data.activities;
-        currentLang = getBrowserLanguage();
+        currentLang = getStoredLanguage();
         document.getElementById('lang-select').value = currentLang;
         applyUI();
         render();
