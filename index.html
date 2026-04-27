@@ -16,6 +16,7 @@
     .container { max-width: 900px; margin: 0 auto; }
     h1 { text-align: center; margin-bottom: 10px; font-size: 2.2em; }
     .subtitle { text-align: center; color: #888; margin-bottom: 40px; }
+    .loading { text-align: center; color: #666; margin-top: 60px; font-size: 1.1em; }
 
     .category-nav {
       display: flex;
@@ -84,6 +85,8 @@
     .activity-card.hidden { display: none; }
     footer { text-align: center; margin-top: 40px; color: #666; font-size: 0.9em; }
     a { color: #e63946; }
+    .admin-link { display: inline-block; margin-top: 15px; color: #444; font-size: 0.85em; }
+    .admin-link:hover { color: #888; }
   </style>
 </head>
 <body>
@@ -91,242 +94,80 @@
     <h1>👶 Games for My Daughter</h1>
     <p class="subtitle">Fun & developmental activities for babies 6–12 months</p>
 
-    <div class="category-nav">
-      <button class="cat-btn active" onclick="filterCategory('all')">All</button>
-      <button class="cat-btn" onclick="filterCategory('motor')">Motor Skills</button>
-      <button class="cat-btn" onclick="filterCategory('sensory')">Sensory Play</button>
-      <button class="cat-btn" onclick="filterCategory('language')">Language & Social</button>
-      <button class="cat-btn" onclick="filterCategory('independent')">Independent Play</button>
-    </div>
-
-    <!-- === MOTOR SKILLS === -->
-    <div class="activity-card" data-cat="motor">
-      <div class="card-inner">
-        <div class="card-images">
-          <img src="https://images.unsplash.com/photo-1544994846-a884a063c904?fm=jpg&q=80&w=600&auto=format&fit=crop" alt="Baby playing peekaboo" loading="lazy">
-        </div>
-        <div class="card-content">
-          <span class="category-tag">Motor Skills</span>
-          <div class="activity-title">🪄 Peekaboo</div>
-          <div class="activity-age">6+ months</div>
-          <p class="activity-desc">
-            Hide behind a blanket, towel, or your hands and surprise your baby with a joyful "Peekaboo!" They'll love the anticipation and the happy reveal.
-          </p>
-          <div class="activity-tip">💡 Use different voices for each peek — high, low, silly — to keep it exciting!</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="activity-card" data-cat="motor">
-      <div class="card-inner">
-        <div class="card-images">
-          <img src="https://images.unsplash.com/photo-1501686637-b7aa9c48a882?fm=jpg&q=80&w=600&auto=format&fit=crop" alt="Toddler stacking blocks" loading="lazy">
-          <img src="https://images.unsplash.com/photo-1557452765-5b57d100c1dc?fm=jpg&q=80&w=600&auto=format&fit=crop" alt="Baby playing with building toys" class="small" loading="lazy">
-        </div>
-        <div class="card-content">
-          <span class="category-tag">Motor Skills</span>
-          <div class="activity-title">🧱 Stacking Cups & Blocks</div>
-          <div class="activity-age">7+ months</div>
-          <p class="activity-desc">
-            Give your baby chunky plastic cups, soft blocks, or nesting toys. They'll love knocking them down and rebuilding (with your help at first!).
-          </p>
-          <div class="activity-tip">💡 Start with 3–4 pieces and add more as they get the hang of it.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="activity-card" data-cat="motor">
-      <div class="card-inner">
-        <div class="card-images">
-          <img src="https://images.unsplash.com/photo-1521804569552-2d8b03be780a?fm=jpg&q=80&w=600&auto=format&fit=crop" alt="Baby pulling to stand" loading="lazy">
-        </div>
-        <div class="card-content">
-          <span class="category-tag">Motor Skills</span>
-          <div class="activity-title">🪑 Pull-to-Stand Practice</div>
-          <div class="activity-age">8+ months</div>
-          <p class="activity-desc">
-            Place sturdy furniture (coffee table, couch) at a safe height for your baby to pull themselves up. Stay close for supervision!
-          </p>
-          <div class="activity-tip">💡 Pad sharp corners and anchor furniture to the wall for safety.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- === SENSORY PLAY === -->
-    <div class="activity-card" data-cat="sensory">
-      <div class="card-inner">
-        <div class="card-images">
-          <img src="https://images.unsplash.com/photo-1585850317821-89f2158747ef?fm=jpg&q=80&w=600&auto=format&fit=crop" alt="Baby sensory texture play" loading="lazy">
-        </div>
-        <div class="card-content">
-          <span class="category-tag">Sensory Play</span>
-          <div class="activity-title">🖐️ Texture Boards</div>
-          <div class="activity-age">6+ months</div>
-          <p class="activity-desc">
-            Create a board with different fabric swatches, sandpaper, bubble wrap, smooth wood, and more. Let your baby explore every texture!
-          </p>
-          <div class="activity-tip">💡 Use a small notebook to note which textures they reach for most — it reveals their preferences.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="activity-card" data-cat="sensory">
-      <div class="card-inner">
-        <div class="card-images">
-          <img src="https://images.unsplash.com/photo-1475178278683-8c225ae5ec3e?fm=jpg&q=80&w=600&auto=format&fit=crop" alt="Baby water play" loading="lazy">
-        </div>
-        <div class="card-content">
-          <span class="category-tag">Sensory Play</span>
-          <div class="activity-title">💧 Water Play</div>
-          <div class="activity-age">8+ months</div>
-          <p class="activity-desc">
-            A shallow tub with warm water and cups, ladles, and floating toys. They'll pour, splash, and discover which objects sink or float.
-          </p>
-          <div class="activity-tip">💡 Always supervise closely. Add a few drops of food-safe dye for extra visual fun!</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="activity-card" data-cat="sensory">
-      <div class="card-inner">
-        <div class="card-images">
-          <img src="https://images.unsplash.com/photo-1415822138156-fd0cd874335a?fm=jpg&q=80&w=600&auto=format&fit=crop" alt="Baby musical instruments" loading="lazy">
-        </div>
-        <div class="card-content">
-          <span class="category-tag">Sensory Play</span>
-          <div class="activity-title">🥁 Musical Instruments</div>
-          <div class="activity-age">7+ months</div>
-          <p class="activity-desc">
-            Pots, wooden spoons, a small xylophone, or shakers made from containers filled with rice or beans. Music + rhythm = pure joy.
-          </p>
-          <div class="activity-tip">💡 Make shakers together — it's a craft and a toy in one!</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- === LANGUAGE & SOCIAL === -->
-    <div class="activity-card" data-cat="language">
-      <div class="card-inner">
-        <div class="card-images">
-          <img src="https://images.unsplash.com/photo-1504151932400-72d4384f04b3?fm=jpg&q=80&w=600&auto=format&fit=crop" alt="Baby reading picture book" loading="lazy">
-        </div>
-        <div class="card-content">
-          <span class="category-tag">Language & Social</span>
-          <div class="activity-title">📖 Picture Books</div>
-          <div class="activity-age">6+ months</div>
-          <p class="activity-desc">
-            Thick board books with bright colors and simple pictures. Let them turn the pages themselves — even if it's 3 at once!
-          </p>
-          <div class="activity-tip">💡 Narrate everything: "Look, a red ball!" — building vocabulary starts early.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="activity-card" data-cat="language">
-      <div class="card-inner">
-        <div class="card-images">
-          <img src="https://images.unsplash.com/photo-1583078281490-576252fb0085?fm=jpg&q=80&w=600&auto=format&fit=crop" alt="Baby rolling ball" loading="lazy">
-        </div>
-        <div class="card-content">
-          <span class="category-tag">Language & Social</span>
-          <div class="activity-title">⚽ Ball Rolling</div>
-          <div class="activity-age">7+ months</div>
-          <p class="activity-desc">
-            Sit facing your baby an arm's length apart and roll a soft ball back and forth. A perfect first lesson in turn-taking!
-          </p>
-          <div class="activity-tip">💡 Use a lightweight foam ball — soft enough even if they bonk their own face.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="activity-card" data-cat="language">
-      <div class="card-inner">
-        <div class="card-images">
-          <img src="https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?fm=jpg&q=80&w=600&auto=format&fit=crop" alt="Baby playing copycat game" loading="lazy">
-        </div>
-        <div class="card-content">
-          <span class="category-tag">Language & Social</span>
-          <div class="activity-title">👏 Copycat Games</div>
-          <div class="activity-age">7+ months</div>
-          <p class="activity-desc">
-            Clapping, pat-a-cake, waving, and blowing raspberries. Your baby will try to imitate you — and giggle at the results!
-          </p>
-          <div class="activity-tip">💡 Slow down your movements and repeat the same gestures. Repetition is the key.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- === INDEPENDENT PLAY === -->
-    <div class="activity-card" data-cat="independent">
-      <div class="card-inner">
-        <div class="card-images">
-          <img src="https://images.unsplash.com/photo-1573376671096-e1fce2d1f19d?fm=jpg&q=80&w=600&auto=format&fit=crop" alt="Baby playing with cardboard boxes" loading="lazy">
-        </div>
-        <div class="card-content">
-          <span class="category-tag">Independent Play</span>
-          <div class="activity-title">📦 Cardboard Boxes</div>
-          <div class="activity-age">6+ months</div>
-          <p class="activity-desc">
-            Empty tissue boxes, cereal boxes, and shipping cartons are endlessly fascinating. Put things in, dump them out, crawl in — pure wonder.
-          </p>
-          <div class="activity-tip">💡 Keep a stash of clean boxes in a closet and rotate them every few days for "new" discovery.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="activity-card" data-cat="independent">
-      <div class="card-inner">
-        <div class="card-images">
-          <img src="https://images.unsplash.com/photo-1548065512-3d586ffabe33?fm=jpg&q=80&w=600&auto=format&fit=crop" alt="Toddler shape sorter activity" loading="lazy">
-          <img src="https://images.unsplash.com/photo-1597234767053-08d8e0c34322?fm=jpg&q=80&w=600&auto=format&fit=crop" alt="Baby playing with shape sorter toy" class="small" loading="lazy">
-        </div>
-        <div class="card-content">
-          <span class="category-tag">Independent Play</span>
-          <div class="activity-title">🔷 Shape Sorters</div>
-          <div class="activity-age">9+ months</div>
-          <p class="activity-desc">
-            Simple shape-sorter toys with large holes and chunky pieces. They'll learn through trial and error — and celebrate when it clicks!
-          </p>
-          <div class="activity-tip">💡 Start with just 2 shapes. Too many at once is frustrating, not fun.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="activity-card" data-cat="independent">
-      <div class="card-inner">
-        <div class="card-images">
-          <img src="https://images.unsplash.com/photo-1629583736791-b80401195bcd?fm=jpg&q=80&w=600&auto=format&fit=crop" alt="Toddler playing with puzzle" loading="lazy">
-        </div>
-        <div class="card-content">
-          <span class="category-tag">Independent Play</span>
-          <div class="activity-title">🧩 Chunky Puzzles</div>
-          <div class="activity-age">9+ months</div>
-          <p class="activity-desc">
-            Puzzles with large knobs for easy grabbing. Pegged pieces are perfect for small hands that haven't mastered the pincer grip yet.
-          </p>
-          <div class="activity-tip">💡 Choose 2–3 piece puzzles to start. Matching a picture = instant pride!</div>
-        </div>
-      </div>
-    </div>
+    <div id="loading" class="loading">Loading activities...</div>
+    <div id="category-nav" class="category-nav" style="display:none"></div>
+    <div id="activity-list" style="display:none"></div>
 
     <footer>
       Made with ❤️ for my daughter · Images via <a href="https://unsplash.com">Unsplash</a><br>
-      Powered by <a href="https://openclaw.ai">OpenClaw</a>
+      <a href="admin.html" class="admin-link">✏️ Admin Panel</a>
     </footer>
   </div>
 
   <script>
-    function filterCategory(cat) {
+    let allActivities = [];
+
+    async function loadActivities() {
+      try {
+        const res = await fetch('data.json?t=' + Date.now());
+        const data = await res.json();
+        allActivities = data.activities;
+        render();
+      } catch (e) {
+        document.getElementById('loading').textContent = 'Failed to load activities.';
+      }
+    }
+
+    function render() {
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('category-nav').style.display = 'flex';
+      document.getElementById('activity-list').style.display = 'block';
+
+      const cats = [
+        { key: 'all', label: 'All' },
+        { key: 'motor', label: 'Motor Skills' },
+        { key: 'sensory', label: 'Sensory Play' },
+        { key: 'language', label: 'Language & Social' },
+        { key: 'independent', label: 'Independent Play' }
+      ];
+
+      document.getElementById('category-nav').innerHTML = cats.map(c =>
+        `<button class="cat-btn${c.key==='all'?' active':''}" onclick="filterCategory('${c.key}', this)">${c.label}</button>`
+      ).join('');
+
+      document.getElementById('activity-list').innerHTML = allActivities.map(a => `
+        <div class="activity-card" data-cat="${a.category}">
+          <div class="card-inner">
+            <div class="card-images">
+              ${a.images.map((img, i) =>
+                `<img src="${img}" alt="${esc(a.title)}" class="${i>0?'small':''}" loading="lazy" onerror="this.style.display='none'">`
+              ).join('')}
+            </div>
+            <div class="card-content">
+              <span class="category-tag">${a.categoryLabel}</span>
+              <div class="activity-title">${a.title}</div>
+              <div class="activity-age">${a.age}</div>
+              <p class="activity-desc">${a.description}</p>
+              <div class="activity-tip">${a.tip}</div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function filterCategory(cat, btn) {
       document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
-      event.target.classList.add('active');
+      btn.classList.add('active');
       document.querySelectorAll('.activity-card').forEach(card => {
-        if (cat === 'all' || card.dataset.cat === cat) {
-          card.classList.remove('hidden');
-        } else {
-          card.classList.add('hidden');
-        }
+        card.classList.toggle('hidden', cat !== 'all' && card.dataset.cat !== cat);
       });
     }
+
+    function esc(str) {
+      return String(str||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    loadActivities();
   </script>
 </body>
 </html>

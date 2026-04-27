@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — Games for My Daughter</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0f1117;
+      min-height: 100vh;
+      padding: 30px 20px;
+      color: #fff;
+    }
+    .container { max-width: 900px; margin: 0 auto; }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    h1 { font-size: 1.4em; }
+    .header-actions { display: flex; gap: 10px; align-items: center; }
+    .status-msg {
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85em;
+      display: none;
+    }
+    .status-msg.saving { background: rgba(230,57,70,0.2); color: #e63946; display: inline-block; }
+    .status-msg.saved { background: rgba(78,205,196,0.2); color: #4ecdc4; display: inline-block; }
+    .status-msg.error { background: rgba(230,57,70,0.2); color: #e63946; display: inline-block; }
+
+    .token-bar {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .token-bar label { color: #888; font-size: 0.9em; flex: 0 0 auto; }
+    .token-bar input {
+      flex: 1;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 0.9em;
+      min-width: 200px;
+    }
+    .token-bar button {
+      background: #e63946;
+      border: none;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9em;
+    }
+    .token-bar button:hover { background: #c1303e; }
+    .token-note { font-size: 0.75em; color: #555; flex: 0 0 100%; margin-top: 5px; }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 18px;
+      background: rgba(255,255,255,0.04);
+      cursor: pointer;
+      user-select: none;
+    }
+    .card-header:hover { background: rgba(255,255,255,0.08); }
+    .card-title { font-weight: 600; font-size: 0.95em; display: flex; align-items: center; gap: 8px; }
+    .card-cat {
+      font-size: 0.72em;
+      background: rgba(230,57,70,0.2);
+      color: #e63946;
+      padding: 2px 8px;
+      border-radius: 10px;
+    }
+    .dirty-dot { color: #e63946; font-size: 0.8em; }
+    .toggle-icon { font-size: 1em; transition: transform 0.2s; }
+    .card.expanded .toggle-icon { transform: rotate(180deg); }
+    .card-body { display: none; padding: 18px; }
+    .card.expanded .card-body { display: block; }
+
+    .field { margin-bottom: 13px; }
+    .field label {
+      display: block;
+      font-size: 0.78em;
+      color: #888;
+      margin-bottom: 5px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .field input, .field textarea, .field select {
+      width: 100%;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px;
+      color: #fff;
+      padding: 9px 11px;
+      font-size: 0.93em;
+      font-family: inherit;
+      transition: border-color 0.2s;
+      box-sizing: border-box;
+    }
+    .field input:focus, .field textarea:focus, .field select:focus {
+      outline: none;
+      border-color: #e63946;
+    }
+    .field textarea { resize: vertical; min-height: 70px; line-height: 1.5; }
+    .field input[type="url"] { font-size: 0.85em; }
+
+    .image-list { display: flex; flex-direction: column; gap: 8px; }
+    .image-row { display: flex; gap: 8px; align-items: center; }
+    .image-row input { flex: 1; min-width: 0; }
+    .image-row img {
+      width: 56px;
+      height: 38px;
+      object-fit: cover;
+      border-radius: 6px;
+      flex-shrink: 0;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .btn-remove {
+      background: rgba(230,57,70,0.2);
+      border: 1px solid rgba(230,57,70,0.3);
+      color: #e63946;
+      padding: 5px 9px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.85em;
+      flex-shrink: 0;
+    }
+    .btn-remove:hover { background: rgba(230,57,70,0.4); }
+    .btn-add {
+      background: rgba(78,205,196,0.12);
+      border: 1px solid rgba(78,205,196,0.35);
+      color: #4ecdc4;
+      padding: 7px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.88em;
+      margin-top: 6px;
+      width: 100%;
+    }
+    .btn-add:hover { background: rgba(78,205,196,0.25); }
+
+    .btn-save {
+      background: #e63946;
+      border: none;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.93em;
+      font-weight: 600;
+      margin-top: 10px;
+      width: 100%;
+    }
+    .btn-save:hover { background: #c1303e; }
+    .btn-save:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    .btn-view-site {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9em;
+      text-decoration: none;
+    }
+    .btn-view-site:hover { background: rgba(255,255,255,0.2); }
+
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      color: #444;
+      font-size: 0.82em;
+    }
+    footer a { color: #666; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🎮 Admin Panel — Games for My Daughter</h1>
+      <div class="header-actions">
+        <span id="status" class="status-msg"></span>
+        <a href="index.html" target="_blank" class="btn-view-site">👁 View Site</a>
+      </div>
+    </header>
+
+    <!-- Token bar -->
+    <div class="token-bar" id="token-bar">
+      <label>🔑 GitHub Token:</label>
+      <input type="password" id="token-input" placeholder="ghp_... (stored in browser session only)">
+      <button onclick="submitToken()">Use Token</button>
+      <div class="token-note">Your token is stored only in this browser session. Needed to save changes to GitHub.</div>
+    </div>
+
+    <div id="activity-list"></div>
+
+    <footer>
+      Changes are saved to <code>data.json</code> in the repo via GitHub API · <a href="https://github.com/muhtarclaw/games-for-my-daughter" target="_blank">View Repo</a>
+    </footer>
+  </div>
+
+  <script>
+    const REPO = 'muhtarclaw/games-for-my-daughter';
+    const BRANCH = 'main';
+    const DATA_PATH = 'data.json';
+
+    let activities = [];
+    let modified = {};
+    let tokenReady = false;
+
+    function getToken() {
+      return sessionStorage.getItem('gh_token') || '';
+    }
+
+    async function submitToken() {
+      const t = document.getElementById('token-input').value.trim();
+      if (!t) return;
+      sessionStorage.setItem('gh_token', t);
+      document.getElementById('token-bar').style.display = 'none';
+      tokenReady = true;
+      loadData();
+    }
+
+    async function loadData() {
+      if (!tokenReady) {
+        document.getElementById('token-input').value = getToken();
+        if (getToken()) { submitToken(); }
+        return;
+      }
+      try {
+        const res = await fetch(DATA_PATH + '?t=' + Date.now(), {
+          headers: { 'Authorization': 'Bearer ' + getToken() }
+        });
+        if (!res.ok) throw new Error('Failed to load');
+        const data = await res.json();
+        activities = data.activities;
+        render();
+      } catch (e) {
+        document.getElementById('activity-list').innerHTML =
+          '<p style="color:#e63946;text-align:center">Failed to load data.json. Check your token and try again.</p>';
+      }
+    }
+
+    function render() {
+      const list = document.getElementById('activity-list');
+      list.innerHTML = activities.map((a, i) => `
+        <div class="card${modified[i] ? ' expanded' : ''}" data-index="${i}">
+          <div class="card-header" onclick="toggleCard(${i})">
+            <span class="card-title">
+              ${a.title}
+              <span class="card-cat">${a.categoryLabel}</span>
+              ${modified[i] ? '<span class="dirty-dot">●</span>' : ''}
+            </span>
+            <span class="toggle-icon">▼</span>
+          </div>
+          <div class="card-body">
+            <div class="field">
+              <label>Title (with emoji)</label>
+              <input type="text" value="${esc(a.title)}" oninput="track(${i}, 'title', this.value)">
+            </div>
+            <div class="field">
+              <label>Category</label>
+              <select onchange="track(${i}, 'category', this.value)">
+                ${[
+                  ['motor','Motor Skills'],
+                  ['sensory','Sensory Play'],
+                  ['language','Language & Social'],
+                  ['independent','Independent Play']
+                ].map(([v,l]) => `<option value="${v}" ${a.category===v?'selected':''}>${l}</option>`).join('')}
+              </select>
+            </div>
+            <div class="field">
+              <label>Age Range</label>
+              <input type="text" value="${esc(a.age)}" placeholder="e.g. 6+ months" oninput="track(${i}, 'age', this.value)">
+            </div>
+            <div class="field">
+              <label>Description</label>
+              <textarea oninput="track(${i}, 'description', this.value)">${esc(a.description)}</textarea>
+            </div>
+            <div class="field">
+              <label>💡 Tip</label>
+              <input type="text" value="${esc(a.tip)}" oninput="track(${i}, 'tip', this.value)">
+            </div>
+            <div class="field">
+              <label>Image URLs</label>
+              <div class="image-list">
+                ${a.images.map((img, j) => `
+                  <div class="image-row">
+                    <input type="url" value="${esc(img)}" placeholder="https://images.unsplash.com/..." oninput="trackImg(${i},${j},this.value); updatePreview(this)">
+                    <img src="${img}" alt="preview" onerror="this.style.opacity='0.3'">
+                    <button type="button" class="btn-remove" onclick="removeImg(${i},${j})">✕</button>
+                  </div>
+                `).join('')}
+              </div>
+              <button type="button" class="btn-add" onclick="addImg(${i})">+ Add Image URL</button>
+            </div>
+            <button class="btn-save" onclick="saveActivity(${i})" ${!modified[i] ? 'disabled' : ''}>
+              ${modified[i] ? 'Save Changes' : 'No Changes'}
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function updatePreview(input) {
+      input.nextElementSibling.src = input.value;
+      input.nextElementSibling.style.opacity = '1';
+    }
+
+    function toggleCard(i) {
+      document.querySelector(`[data-index="${i}"]`).classList.toggle('expanded');
+    }
+
+    function track(i, field, value) {
+      if (!modified[i]) {
+        modified[i] = JSON.parse(JSON.stringify(activities[i]));
+        modified[i]._dirty = true;
+      }
+      modified[i][field] = value;
+      const card = document.querySelector(`[data-index="${i}"]`);
+      card.querySelector('.card-title').innerHTML =
+        (modified[i].title) + ' <span class="card-cat">' + (modified[i].categoryLabel || activities[i].categoryLabel) + '</span>' +
+        ' <span class="dirty-dot">●</span>';
+      card.querySelector('.btn-save').textContent = 'Save Changes';
+      card.querySelector('.btn-save').disabled = false;
+    }
+
+    function trackImg(i, j, value) {
+      if (!modified[i]) {
+        modified[i] = JSON.parse(JSON.stringify(activities[i]));
+        modified[i]._dirty = true;
+      }
+      modified[i].images[j] = value;
+    }
+
+    function addImg(i) {
+      if (!modified[i]) {
+        modified[i] = JSON.parse(JSON.stringify(activities[i]));
+        modified[i]._dirty = true;
+      }
+      modified[i].images.push('');
+      render();
+      document.querySelector(`[data-index="${i}"]`).classList.add('expanded');
+    }
+
+    function removeImg(i, j) {
+      if (!modified[i]) {
+        modified[i] = JSON.parse(JSON.stringify(activities[i]));
+        modified[i]._dirty = true;
+      }
+      modified[i].images.splice(j, 1);
+      render();
+      document.querySelector(`[data-index="${i}"]`).classList.add('expanded');
+    }
+
+    async function saveActivity(i) {
+      const updated = modified[i];
+      if (!updated || !updated._dirty) return;
+      const final = { ...activities[i] };
+      for (const k of ['title','category','age','description','tip','images','categoryLabel']) {
+        if (updated[k] !== undefined) final[k] = updated[k];
+      }
+      activities[i] = final;
+      delete modified[i];
+
+      setStatus('saving', 'Saving...');
+      try {
+        await saveToGitHub(activities);
+        setStatus('saved', '✅ Saved!');
+        setTimeout(() => setStatus('', ''), 3000);
+        render();
+      } catch (e) {
+        setStatus('error', '❌ ' + e.message);
+        modified[i] = activities[i];
+        modified[i]._dirty = true;
+      }
+    }
+
+    async function saveToGitHub(data) {
+      const token = getToken();
+      const content = JSON.stringify({ activities: data }, null, 2);
+      const encoded = btoa(unescape(encodeURIComponent(content)));
+
+      const getRes = await fetch(`https://api.github.com/repos/${REPO}/contents/${DATA_PATH}`, {
+        headers: { 'Authorization': 'Bearer ' + token }
+      });
+      if (!getRes.ok) throw new Error('Could not read data.json (check token permissions)');
+      const getData = await getRes.json();
+      const sha = getData.sha;
+
+      const putRes = await fetch(`https://api.github.com/repos/${REPO}/contents/${DATA_PATH}`, {
+        method: 'PUT',
+        headers: {
+          'Authorization': 'Bearer ' + token,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          message: 'Update activities via admin panel',
+          content: encoded,
+          sha: sha,
+          branch: BRANCH
+        })
+      });
+      if (!putRes.ok) {
+        const err = await putRes.json();
+        throw new Error(err.message || 'GitHub API error');
+      }
+    }
+
+    function setStatus(cls, msg) {
+      const el = document.getElementById('status');
+      el.className = 'status-msg ' + cls;
+      el.textContent = msg;
+    }
+
+    function esc(str) {
+      return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    // Auto-load if token already saved
+    if (getToken()) {
+      document.getElementById('token-input').value = getToken();
+      document.getElementById('token-input').type = 'text';
+    }
+    loadData();
+  </script>
+</body>
+</html>
