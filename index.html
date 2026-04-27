@@ -175,6 +175,14 @@
       localStorage.setItem('lang', lang);
       document.documentElement.lang = lang;
       applyUI();
+      renderCategoryNav();
+    }
+
+    function renderCategoryNav() {
+      const t = ui[currentLang] || ui['en'];
+      document.getElementById('category-nav').innerHTML = t.cats.map(c =>
+        `<button class="cat-btn${c.key==='all'?' active':''}" onclick="filterCategory('${c.key}', this)">${c.label}</button>`
+      ).join('');
     }
 
     function applyUI() {
@@ -205,9 +213,7 @@
       document.getElementById('activity-list').style.display = 'block';
 
       const t = ui[currentLang] || ui['en'];
-      document.getElementById('category-nav').innerHTML = t.cats.map(c =>
-        `<button class="cat-btn${c.key==='all'?' active':''}" onclick="filterCategory('${c.key}', this)">${c.label}</button>`
-      ).join('');
+      renderCategoryNav();
 
       document.getElementById('activity-list').innerHTML = allActivities.map(a => `
         <div class="activity-card" data-cat="${a.category}">
