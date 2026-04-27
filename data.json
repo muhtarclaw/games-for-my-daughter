@@ -1,40 +1,338 @@
 {
   "activities": [
     {
-      "id": "peekaboo",
-      "title": "🪄 Peekaboo",
+      "id": "tummy-time",
+      "title": "🕯️ Tummy Time",
       "category": "motor",
       "categoryLabel": "Motor Skills",
+      "age": "0+ months",
+      "description": "Place your baby on their tummy on a soft surface. Start with a few minutes at a time and gradually extend as they get stronger. Stay close and talk to them to keep them engaged. Tummy time builds the neck and upper body strength your baby needs for crawling and sitting.",
+      "tip": "💡 Try tummy time after a diaper change or place a small rolled towel under their chest for extra support.",
+      "images": [
+        "https://images.unsplash.com/photo-1520352408661-83957c1379d2?fm=jpg&q=80&w=600&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1603474262873-e72086bd36b5?fm=jpg&q=80&w=600&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "all-smiles",
+      "title": "😊 All Smiles",
+      "category": "language",
+      "categoryLabel": "Language & Social",
+      "age": "2+ months",
+      "description": "Simply smile at your baby and wait for them to smile back! Try making funny faces and silly noises to get them grinning. This simple back-and-forth builds social skills and early communication.",
+      "tip": "💡 Get face-to-face and close — babies love studying your expressions up close!",
+      "images": [
+        "https://images.unsplash.com/photo-1557939561-a7a1dcceb7a2?fm=jpg&q=80&w=600&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1589452121483-c14e331408b1?fm=jpg&q=80&w=600&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "show-and-tell",
+      "title": "🧸 Show and Tell",
+      "category": "sensory",
+      "categoryLabel": "Sensory Play",
+      "age": "0+ months",
+      "description": "Choose a soft toy or safe household object — a clean wooden spoon, a textured ball, a fabric swatch. Hold it close, describe it slowly: 'This is a blue ball. It's soft and squishy!' Let your baby see, touch (safely), and explore.",
+      "tip": "💡 Rotate different textures and shapes every few days to keep their sensory world expanding.",
+      "images": [
+        "https://images.unsplash.com/photo-1554728432-3816d7bb55f2?fm=jpg&q=80&w=600&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1600620971628-7973f50adccc?fm=jpg&q=80&w=600&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "clappity-clap",
+      "title": "👏 Clappity Clap",
+      "category": "motor",
+      "categoryLabel": "Motor Skills",
+      "age": "3+ months",
+      "description": "Sit your baby upright in your lap or lay them on a soft surface. Gently take their hands and bring them together in a clapping motion while narrating cheerfully: 'Clap, clap, clap!' Sing clapping songs like 'If You're Happy and You Know It' for added fun.",
+      "tip": "💡 Add variations like tapping their feet together or clapping along to music!",
+      "images": [
+        "https://images.unsplash.com/photo-1526739178209-77cd6c6bcf4f?fm=jpg&q=80&w=600&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "pedal-pedal",
+      "title": "🚴 Pedal Pedal",
+      "category": "motor",
+      "categoryLabel": "Motor Skills",
+      "age": "0+ months",
+      "description": "Lay your baby on their back after a diaper change. Gently hold their ankles and move their legs in a bicycle motion — pedal, pedal, pedal! Talk to them as you go: 'Let's go for a ride!' This helps digestion, relieves gas, and builds coordination.",
+      "tip": "💡 Add a gentle belly rub afterward for an extra soothing finish.",
+      "images": [
+        "https://images.unsplash.com/photo-1541887907133-59852349d740?fm=jpg&q=80&w=600&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "tickle-me",
+      "title": "😆 Tickle Me",
+      "category": "sensory",
+      "categoryLabel": "Sensory Play",
+      "age": "2+ months",
+      "description": "Chant a beloved rhyme like 'This Little Piggy,' gently wiggling each toe, or trace circles on their tummy saying 'Round and round the garden.' Pause before the 'tickle!' to build anticipation. Classic, simple, and always a hit!",
+      "tip": "💡 Classic rhymes like 'Round and Round the Garden' and 'This Little Piggy' are perfect for building anticipation and giggles.",
+      "images": [
+        "https://images.unsplash.com/photo-1589452121483-c14e331408b1?fm=jpg&q=80&w=600&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "shake-and-rattle",
+      "title": "🪘 Shake and Rattle",
+      "category": "sensory",
+      "categoryLabel": "Sensory Play",
+      "age": "3+ months",
+      "description": "Use a baby-safe rattle or soft squeaky toy. Shake it near one side of their head, then the other, giving them time to turn toward the sound. Gently guide their hand to swat at the toy. Homemade shakers (rice in a sealed container) work great too!",
+      "tip": "💡 Make shakers together — fill a small container with rice, beans, or pasta and seal tightly. A craft and a toy in one!",
+      "images": [
+        "https://images.unsplash.com/photo-1475178278683-8c225ae5ec3e?fm=jpg&q=80&w=600&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "bubble-blowing",
+      "title": "🫧 Bubble Blowing",
+      "category": "sensory",
+      "categoryLabel": "Sensory Play",
+      "age": "3+ months",
+      "description": "Seat your baby securely on your lap or in a bouncer. Blow bubbles in the air and watch their eyes follow the motion. Gently pop bubbles near them or encourage them to reach out. Talk excitedly: 'Look at the bubbles! Pop, pop, pop!'",
+      "tip": "💡 Use non-toxic bubbles and avoid letting bubbles get near their eyes. Add a few drops of baby-safe food colouring to make the pops more visible!",
+      "images": [
+        "https://images.unsplash.com/photo-1546860371-7a822c076eaf?fm=jpg&q=80&w=600&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "play-ball",
+      "title": "⚽ Play Ball",
+      "category": "motor",
+      "categoryLabel": "Motor Skills",
+      "age": "3+ months",
+      "description": "Sit facing your baby on the floor with a soft, lightweight ball. Roll it slowly toward them: 'Here it comes!' They'll reach, grab, and eventually push it back. A simple game that grows with your baby's abilities.",
+      "tip": "💡 Use a lightweight foam ball — soft enough even if they bonk their own face!",
+      "images": [
+        "https://images.unsplash.com/photo-1583078281490-576252fb0085?fm=jpg&q=80&w=600&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1490065498760-2828fc7f8180?fm=jpg&q=80&w=600&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "baby-workout",
+      "title": "🏋️ Baby Workout",
+      "category": "motor",
+      "categoryLabel": "Motor Skills",
+      "age": "0+ months",
+      "description": "Lay your baby on their back under a baby gym. Let them explore by watching the dangling toys and swatting at them. Narrate the colours and shapes: 'There's the red star!' Rotate toys and gently guide their arms to reach.",
+      "tip": "💡 Baby gyms are brilliant for independent exploration — just lie nearby and cheer them on!",
+      "images": [
+        "https://images.unsplash.com/photo-1520352408661-83957c1379d2?fm=jpg&q=80&w=600&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "chitchat",
+      "title": "💬 Chitchat",
+      "category": "language",
+      "categoryLabel": "Language & Social",
+      "age": "0+ months",
+      "description": "Narrate your day as you interact with your baby: 'Now we're changing your diaper,' or 'I am folding the blue towel.' Describe what you're doing in a calm, cheerful voice. Mimic their coos and expressions to start a back-and-forth 'conversation.'",
+      "tip": "💡 Even before they can talk back, you're building vocabulary and showing them back-and-forth conversation is how we connect.",
+      "images": [
+        "https://images.unsplash.com/photo-1558576997-eac36a2f8c7a?fm=jpg&q=80&w=600&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "fishing-for-fun",
+      "title": "🎣 Fishing for Fun",
+      "category": "motor",
+      "categoryLabel": "Motor Skills",
+      "age": "3+ months",
+      "description": "Attach a soft toy to a ribbon or string (securely tied, always supervised). During tummy time, slowly dangle it in their line of vision, moving side to side. Say: 'Where's the bear going? You see the ducky?' Encourage reaching and batting as they grow.",
+      "tip": "💡 Always store the ribbon safely out of reach when you're done to avoid any risks.",
+      "images": [
+        "https://images.unsplash.com/photo-1548065512-3d586ffabe33?fm=jpg&q=80&w=600&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "peekaboo",
+      "title": "🪄 Peekaboo",
+      "category": "language",
+      "categoryLabel": "Language & Social",
       "age": "6+ months",
-      "description": "Hide behind a blanket, towel, or your hands and surprise your baby with a joyful \"Peekaboo!\" They'll love the anticipation and the happy reveal.",
+      "description": "Hide behind a blanket, towel, or your hands and surprise your baby with a joyful 'Peekaboo!' They'll love the anticipation and the happy reveal. Peekaboo teaches object permanence — that people and objects still exist when out of sight.",
       "tip": "💡 Use different voices for each peek — high, low, silly — to keep it exciting!",
       "images": [
         "https://images.unsplash.com/photo-1544994846-a884a063c904?fm=jpg&q=80&w=600&auto=format&fit=crop"
       ]
     },
     {
-      "id": "stacking-blocks",
-      "title": "🧱 Stacking Cups & Blocks",
+      "id": "crawling-course",
+      "title": "🛝 Crawling Course",
+      "category": "motor",
+      "categoryLabel": "Motor Skills",
+      "age": "6+ months",
+      "description": "Gather soft household items — cushions, pillows, large stuffed animals, play tunnels. Arrange them to create a mini obstacle course. Show your baby how to climb over a pillow or crawl under a chair. Sit at the far end and encourage them with a favourite toy.",
+      "tip": "💡 There's no 'right' way to move — over, under, or around, the goal is movement, engagement, and fun!",
+      "images": [
+        "https://images.unsplash.com/photo-1602188070006-8ebd53277cb1?fm=jpg&q=80&w=600&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "puppet-theater",
+      "title": "🎭 Puppet Theater",
+      "category": "language",
+      "categoryLabel": "Language & Social",
+      "age": "6+ months",
+      "description": "Make simple finger puppets from old gloves, felt, or paper — decorate them with friendly faces. Put on a short 'show' with characters talking, singing, or dancing. Change voices, make silly sounds, and act out simple scenes like animals saying hello.",
+      "tip": "💡 Encourage your baby to reach for or interact with the puppets as the story unfolds.",
+      "images": [
+        "https://images.unsplash.com/photo-1544438290-04e3f0a41401?fm=jpg&q=80&w=600&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1568190621813-7535e3954707?fm=jpg&q=80&w=600&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "mirroring",
+      "title": "🪞 Mirroring",
+      "category": "language",
+      "categoryLabel": "Language & Social",
+      "age": "6+ months",
+      "description": "Hold a safe, shatterproof mirror in front of your baby. Point to their reflection: 'Look, it's you!' Make exaggerated faces — stick out your tongue, raise your eyebrows, smile big. Encourage them to copy you. Clap and cheer if they try!",
+      "tip": "💡 Mirrors fascinate babies at this age — they don't yet know it's them, but they love the face in the glass!",
+      "images": [
+        "https://images.unsplash.com/photo-1539022963534-c93ba43fbb5d?fm=jpg&q=80&w=600&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "kickball",
+      "title": "⚽ Kickball",
       "category": "motor",
       "categoryLabel": "Motor Skills",
       "age": "7+ months",
-      "description": "Give your baby chunky plastic cups, soft blocks, or nesting toys. They'll love knocking them down and rebuilding (with your help at first!).",
-      "tip": "💡 Start with 3–4 pieces and add more as they get the hang of it.",
+      "description": "Sit your baby on the ground, supporting them under the arms. Place a soft ball in front of their legs. Gently swing their legs forward so they 'kick' it: 'Kick, kick, hooray!' As they gain control, let them try to kick independently while seated.",
+      "tip": "💡 A soft, lightweight ball is best — this is as much about laughing as it is about leg strength!",
+      "images": [
+        "https://images.unsplash.com/photo-1490065498760-2828fc7f8180?fm=jpg&q=80&w=600&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "hide-and-seek",
+      "title": "🔍 Hide and Seek",
+      "category": "language",
+      "categoryLabel": "Language & Social",
+      "age": "9+ months",
+      "description": "A baby-friendly hide and seek builds on peekaboo and helps your little one understand object permanence. Hide a favourite toy under a blanket or behind a cushion and encourage them to find it: 'Where did the bear go? Can you find them?'",
+      "tip": "💡 Start with partially hidden objects and work up to fully hidden ones as they get better at the game.",
+      "images": [
+        "https://images.unsplash.com/photo-1544994846-a884a063c904?fm=jpg&q=80&w=600&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "stacking-towers",
+      "title": "🧱 Stacking Towers",
+      "category": "motor",
+      "categoryLabel": "Motor Skills",
+      "age": "9+ months",
+      "description": "Give your baby chunky plastic cups, soft blocks, or nesting toys. They'll love knocking them down and rebuilding — with your help at first! This activity builds hand-eye coordination and introduces early concepts of size and order.",
+      "tip": "💡 Start with 3–4 pieces and add more as they get the hang of it. Naming the colours as you stack adds a language boost too!",
       "images": [
         "https://images.unsplash.com/photo-1501686637-b7aa9c48a882?fm=jpg&q=80&w=600&auto=format&fit=crop",
         "https://images.unsplash.com/photo-1557452765-5b57d100c1dc?fm=jpg&q=80&w=600&auto=format&fit=crop"
       ]
     },
     {
-      "id": "pull-to-stand",
-      "title": "🪑 Pull-to-Stand Practice",
+      "id": "sing-alongs",
+      "title": "🎵 Sing-Alongs",
+      "category": "language",
+      "categoryLabel": "Language & Social",
+      "age": "6+ months",
+      "description": "Sing nursery rhymes with actions — 'The Wheels on the Bus,' 'Itsy Bitsy Spider,' 'Head, Shoulders, Knees and Toes.' Use hand motions, clap along, and encourage your baby to wave or clap with you. Repetition is everything at this age!",
+      "tip": "💡 Sing the same songs regularly — babies love repetition and will start to anticipate the actions!",
+      "images": [
+        "https://images.unsplash.com/photo-1526739178209-77cd6c6bcf4f?fm=jpg&q=80&w=600&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1580197589210-63ca87f3aadd?fm=jpg&q=80&w=600&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "simple-sorting",
+      "title": "🔷 Simple Sorting",
+      "category": "independent",
+      "categoryLabel": "Independent Play",
+      "age": "9+ months",
+      "description": "Give your baby a muffin tin or ice cube tray with a few different objects — coloured balls, small blocks, or soft toys. Show them how to drop each piece into a hole. They'll love the cause-and-effect and the feeling of fitting things in.",
+      "tip": "💡 Start with just 2 colours or shapes. Too many at once is overwhelming, not fun!",
+      "images": [
+        "https://images.unsplash.com/photo-1600620971628-7973f50adccc?fm=jpg&q=80&w=600&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1629583736791-b80401195bcd?fm=jpg&q=80&w=600&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "animal-sounds",
+      "title": "🐾 Animal Sounds",
+      "category": "language",
+      "categoryLabel": "Language & Social",
+      "age": "8+ months",
+      "description": "Read animal books and make the sounds: 'The cow says MOO! The dog says WOOF!' Point to each animal and let your baby explore the sounds. You can use toy animals, flashcards, or just point to pictures on the pages.",
+      "tip": "💡 Animal sound books with photographs (rather than illustrations) are especially engaging for babies.",
+      "images": [
+        "https://images.unsplash.com/photo-1509919160358-7a6dc4c4f855?fm=jpg&q=80&w=600&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1528424260242-105dfe25c2a8?fm=jpg&q=80&w=600&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "baby-led-cleanup",
+      "title": "🧹 Baby-Led Cleanup",
+      "category": "independent",
+      "categoryLabel": "Independent Play",
+      "age": "9+ months",
+      "description": "Turn cleanup into a game: 'Let's put the ball in the basket!' Show them how to drop toys into a box or basket. Clap and cheer when they succeed. At this age, they're actually eager to help — take advantage of it!",
+      "tip": "💡 Keep a 'toss basket' near their play area so cleanup becomes a fun game rather than a chore.",
+      "images": [
+        "https://images.unsplash.com/photo-1573376671096-e1fce2d1f19d?fm=jpg&q=80&w=600&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "highchair-art",
+      "title": "🎨 Highchair Art",
+      "category": "sensory",
+      "categoryLabel": "Sensory Play",
+      "age": "9+ months",
+      "description": "Tape large paper to the highchair tray and give your baby chunky, washable crayons or finger paints. They'll make glorious scribbles, smears, and dots. It's messy, it's creative, and it's totally absorbable for their age.",
+      "tip": "💡 Choose non-toxic, washable finger paints or crayons designed for babies. Expect more eating than painting at first!",
+      "images": [
+        "https://images.unsplash.com/photo-1554728432-3816d7bb55f2?fm=jpg&q=80&w=600&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1600647393963-94ae66689368?fm=jpg&q=80&w=600&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "follow-the-leader",
+      "title": "🐒 Follow the Leader",
       "category": "motor",
       "categoryLabel": "Motor Skills",
-      "age": "8+ months",
-      "description": "Place sturdy furniture (coffee table, couch) at a safe height for your baby to pull themselves up. Stay close for supervision!",
-      "tip": "💡 Pad sharp corners and anchor furniture to the wall for safety.",
+      "age": "9+ months",
+      "description": "Get down on the floor and crawl around with your baby! Make funny movements — crawl under a table, climb over a pillow, spin around. Cheer them on as they try to copy you. Waddle like a duck, hop like a frog — the sillier the better!",
+      "tip": "💡 This is great for gross motor development and they'll love copying your funny moves!",
       "images": [
-        "https://images.unsplash.com/photo-1521804569552-2d8b03be780a?fm=jpg&q=80&w=600&auto=format&fit=crop"
+        "https://images.unsplash.com/photo-1602188070006-8ebd53277cb1?fm=jpg&q=80&w=600&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "treasure-basket",
+      "title": "💎 Treasure Basket",
+      "category": "sensory",
+      "categoryLabel": "Sensory Play",
+      "age": "6+ months",
+      "description": "Fill a low basket or container with safe household objects: a wooden spoon, a small metal cup, a fabric scrap, a plastic bottle, a natural sponge. Let your baby explore. They'll love discovering different textures, weights, sounds, and materials.",
+      "tip": "💡 Keep it to 10–15 objects and rotate weekly. A tea set, measuring cups, and wooden blocks make great additions.",
+      "images": [
+        "https://images.unsplash.com/photo-1600620971628-7973f50adccc?fm=jpg&q=80&w=600&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "picture-books",
+      "title": "📖 Picture Books",
+      "category": "language",
+      "categoryLabel": "Language & Social",
+      "age": "0+ months",
+      "description": "Choose baby-friendly books with sturdy pages, bold images, and simple stories. Sit your baby in your lap during floor time. Read with enthusiasm, changing your tone, pointing to pictures, and asking questions: 'Look at the cow! What sound does it make?'",
+      "tip": "💡 Black-and-white or high-contrast books are especially helpful for young babies still developing their vision. Never too early to start!",
+      "images": [
+        "https://images.unsplash.com/photo-1504151932400-72d4384f04b3?fm=jpg&q=80&w=600&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1558576997-eac36a2f8c7a?fm=jpg&q=80&w=600&auto=format&fit=crop"
       ]
     },
     {
@@ -43,95 +341,10 @@
       "category": "sensory",
       "categoryLabel": "Sensory Play",
       "age": "6+ months",
-      "description": "Create a board with different fabric swatches, sandpaper, bubble wrap, smooth wood, and more. Let your baby explore every texture!",
-      "tip": "💡 Use a small notebook to note which textures they reach for most — it reveals their preferences.",
+      "description": "Create a board with different fabric swatches, sandpaper, bubble wrap, smooth wood, and more. Let your baby explore every texture with their fingertips and palms. It's a simple, wonderful way to expand their sensory world.",
+      "tip": "💡 Use a small notebook to note which textures they reach for most — it reveals their preferences!",
       "images": [
         "https://images.unsplash.com/photo-1585850317821-89f2158747ef?fm=jpg&q=80&w=600&auto=format&fit=crop"
-      ]
-    },
-    {
-      "id": "water-play",
-      "title": "💧 Water Play",
-      "category": "sensory",
-      "categoryLabel": "Sensory Play",
-      "age": "8+ months",
-      "description": "A shallow tub with warm water and cups, ladles, and floating toys. They'll pour, splash, and discover which objects sink or float.",
-      "tip": "💡 Always supervise closely. Add a few drops of food-safe dye for extra visual fun!",
-      "images": [
-        "https://images.unsplash.com/photo-1533499966477-9333968a4e28?fm=jpg&q=80&w=600&auto=format&fit=crop"
-      ]
-    },
-    {
-      "id": "musical-instruments",
-      "title": "🥁 Musical Instruments",
-      "category": "sensory",
-      "categoryLabel": "Sensory Play",
-      "age": "7+ months",
-      "description": "Pots, wooden spoons, a small xylophone, or shakers made from containers filled with rice or beans. Music + rhythm = pure joy.",
-      "tip": "💡 Make shakers together — it's a craft and a toy in one!",
-      "images": [
-        "https://images.unsplash.com/photo-1415822138156-fd0cd874335a?fm=jpg&q=80&w=600&auto=format&fit=crop"
-      ]
-    },
-    {
-      "id": "picture-books",
-      "title": "📖 Picture Books",
-      "category": "language",
-      "categoryLabel": "Language & Social",
-      "age": "6+ months",
-      "description": "Thick board books with bright colors and simple pictures. Let them turn the pages themselves — even if it's 3 at once!",
-      "tip": "💡 Narrate everything: \"Look, a red ball!\" — building vocabulary starts early.",
-      "images": [
-        "https://images.unsplash.com/photo-1504151932400-72d4384f04b3?fm=jpg&q=80&w=600&auto=format&fit=crop"
-      ]
-    },
-    {
-      "id": "ball-rolling",
-      "title": "⚽ Ball Rolling",
-      "category": "language",
-      "categoryLabel": "Language & Social",
-      "age": "7+ months",
-      "description": "Sit facing your baby an arm's length apart and roll a soft ball back and forth. A perfect first lesson in turn-taking!",
-      "tip": "💡 Use a lightweight foam ball — soft enough even if they bonk their own face.",
-      "images": [
-        "https://images.unsplash.com/photo-1583078281490-576252fb0085?fm=jpg&q=80&w=600&auto=format&fit=crop"
-      ]
-    },
-    {
-      "id": "copycat-games",
-      "title": "👏 Copycat Games",
-      "category": "language",
-      "categoryLabel": "Language & Social",
-      "age": "7+ months",
-      "description": "Clapping, pat-a-cake, waving, and blowing raspberries. Your baby will try to imitate you — and giggle at the results!",
-      "tip": "💡 Slow down your movements and repeat the same gestures. Repetition is the key.",
-      "images": [
-        "https://images.unsplash.com/photo-1594150822970-53ccbcd3bda5?fm=jpg&q=80&w=600&auto=format&fit=crop"
-      ]
-    },
-    {
-      "id": "cardboard-boxes",
-      "title": "📦 Cardboard Boxes",
-      "category": "independent",
-      "categoryLabel": "Independent Play",
-      "age": "6+ months",
-      "description": "Empty tissue boxes, cereal boxes, and shipping cartons are endlessly fascinating. Put things in, dump them out, crawl in — pure wonder.",
-      "tip": "💡 Keep a stash of clean boxes in a closet and rotate them every few days for \"new\" discovery.",
-      "images": [
-        "https://images.unsplash.com/photo-1573376671096-e1fce2d1f19d?fm=jpg&q=80&w=600&auto=format&fit=crop"
-      ]
-    },
-    {
-      "id": "shape-sorters",
-      "title": "🔷 Shape Sorters",
-      "category": "independent",
-      "categoryLabel": "Independent Play",
-      "age": "9+ months",
-      "description": "Simple shape-sorter toys with large holes and chunky pieces. They'll learn through trial and error — and celebrate when it clicks!",
-      "tip": "💡 Start with just 2 shapes. Too many at once is frustrating, not fun.",
-      "images": [
-        "https://images.unsplash.com/photo-1548065512-3d586ffabe33?fm=jpg&q=80&w=600&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1597234767053-08d8e0c34322?fm=jpg&q=80&w=600&auto=format&fit=crop"
       ]
     },
     {
@@ -140,8 +353,8 @@
       "category": "independent",
       "categoryLabel": "Independent Play",
       "age": "9+ months",
-      "description": "Puzzles with large knobs for easy grabbing. Pegged pieces are perfect for small hands that haven't mastered the pincer grip yet.",
-      "tip": "💡 Choose 2–3 piece puzzles to start. Matching a picture = instant pride!",
+      "description": "Puzzles with large knobs for easy grabbing are perfect for small hands. Pegged pieces are easier than you think for tiny fingers that haven't mastered the pincer grip yet. A few pieces is plenty — matching the picture is instant pride!",
+      "tip": "💡 Choose 2–3 piece puzzles to start. Too many pieces is frustrating, not fun!",
       "images": [
         "https://images.unsplash.com/photo-1629583736791-b80401195bcd?fm=jpg&q=80&w=600&auto=format&fit=crop"
       ]
