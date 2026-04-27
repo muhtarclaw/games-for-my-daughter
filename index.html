@@ -123,8 +123,17 @@
   </div>
 
   <script>
+    // Synchronously set language from localStorage before any render
+    (function() {
+      const stored = localStorage.getItem('lang');
+      if (stored) {
+        document.documentElement.lang = stored;
+      }
+    })();
+  </script>
+  <script>
     let allActivities = [];
-    let currentLang = 'en';
+    let currentLang = document.documentElement.lang || 'en';
 
     const ui = {
       en: {
