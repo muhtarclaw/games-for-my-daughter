@@ -16,8 +16,6 @@
     .container { max-width: 900px; margin: 0 auto; }
     h1 { text-align: center; margin-bottom: 8px; font-size: 2.2em; }
     .subtitle { text-align: center; color: #888; margin-bottom: 15px; }
-    .page-header { text-align: center; margin-bottom: 0; padding-top: 10px; }
-    .page-header .subtitle { color: #888; font-size: 1em; }
     .controls {
       display: flex;
       flex-wrap: wrap;
@@ -28,11 +26,11 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      padding: 10px 15px;
+      padding: 12px 15px;
       background: linear-gradient(135deg, rgba(26,26,46,0.98) 0%, rgba(22,33,62,0.98) 100%);
       border-radius: 0 0 16px 16px;
     }
-    .controls h1 { margin: 0; font-size: 1.5em; }
+    .controls h1 { margin: 0; font-size: 1.3em; }
     .controls select {
       background: rgba(255,255,255,0.1);
       border: 1px solid rgba(255,255,255,0.25);
@@ -128,9 +126,6 @@
 </head>
 <body>
   <div class="container">
-    <div class="page-header">
-      <p class="subtitle" id="site-subtitle">Fun & developmental activities for babies 6–12 months</p>
-    </div>
     <div class="controls">
       <h1 id="site-title">👶 Games for My Daughter</h1>
       <select id="lang-select" onchange="changeLanguage(this.value)">
@@ -274,7 +269,6 @@
     function applyUI() {
       const t = ui[currentLang] || ui['en'];
       document.getElementById('site-title').textContent = t.title;
-      document.getElementById('site-subtitle').textContent = t.subtitle;
       document.getElementById('loading').textContent = t.loading;
       document.getElementById('footer-content').innerHTML = t.footer + '<br>' + `<a href="admin.html" class="admin-link">${t.adminLink}</a>`;
     }
